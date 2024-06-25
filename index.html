@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Média Aritmética</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            margin: 5px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 10px;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Média Aritmética</h1>
+        <input type="number" id="num1" placeholder="Digite o 1º número">
+        <input type="number" id="num2" placeholder="Digite o 2º número">
+        <input type="number" id="num3" placeholder="Digite o 3º número">
+        <input type="number" id="num4" placeholder="Digite o 4º número">
+        <input type="number" id="num5" placeholder="Digite o 5º número">
+        <button onclick="calcularMedia()">Calcular Média</button>
+        <div class="result" id="resultado"></div>
+    </div>
+
+    <script>
+        function calcularMedia() {
+            // Obtém os valores dos inputs
+            const num1 = parseFloat(document.getElementById('num1').value);
+            const num2 = parseFloat(document.getElementById('num2').value);
+            const num3 = parseFloat(document.getElementById('num3').value);
+            const num4 = parseFloat(document.getElementById('num4').value);
+            const num5 = parseFloat(document.getElementById('num5').value);
+
+            // Verifica se todos os números foram inseridos
+            if (isNaN(num1) || isNaN(num2) || isNaN(num3) || isNaN(num4) || isNaN(num5)) {
+                document.getElementById('resultado').innerText = 'Por favor, insira todos os números.';
+                return;
+            }
+
+            // Calcula a média
+            const media = (num1 + num2 + num3 + num4 + num5) / 5;
+
+            // Exibe o resultado
+            document.getElementById('resultado').innerText = `A média aritmética é: ${media}`;
+        }
+    </script>
+</body>
+</html>
